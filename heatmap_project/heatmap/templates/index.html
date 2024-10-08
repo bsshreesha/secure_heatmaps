@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Images</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h2 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        input[type="file"] {
+            margin-top: 10px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Upload Original and Copy Images</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="original_image">Upload Original Image:</label>
+            <input type="file" name="original_image" id="original_image" required>
+
+            <label for="copy_image">Upload Copy Image:</label>
+            <input type="file" name="copy_image" id="copy_image" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

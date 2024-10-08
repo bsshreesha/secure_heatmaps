@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image and Heatmap Comparison</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h2 {
+            text-align: center;
+        }
+        .images-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .image-container {
+            width: 45%;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #337ab7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #286090;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Original and Copy Images with Heatmaps</h2>
+
+        <div class="images-row">
+            <div class="image-container">
+                <h3>Original Image</h3>
+                <p><strong>File Name:</strong> {{ original_image_name }}</p> <!-- Display Original Image Name -->
+                <img src="{{ original_image_url }}" alt="Original Image">
+                <h3>Original Image Heatmap</h3>
+                <img src="{{ original_heatmap_url }}" alt="Original Heatmap">
+            </div>
+
+            <div class="image-container">
+                <h3>Copy Image</h3>
+                <p><strong>File Name:</strong> {{ copy_image_name }}</p> <!-- Display Copy Image Name -->
+                <img src="{{ copy_image_url }}" alt="Copy Image">
+                <h3>Copy Image Heatmap</h3>
+                <img src="{{ copy_heatmap_url }}" alt="Copy Heatmap">
+            </div>
+        </div>
+
+        <div class="button-container">
+            <a href="{% url 'upload_and_process_images' %}">
+                <button>Upload New Images</button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
